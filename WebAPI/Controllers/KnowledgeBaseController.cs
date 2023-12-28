@@ -16,6 +16,8 @@ namespace WebAPI.Controllers
         [HttpGet(Name = "GetKnowledgeBase")]
         public KnowledgeBase GetKnowledgeBaseByName(Guid id)
         {
+            var testHeader = HttpContext.Request.Headers["Test"];
+            
             Validator.GuidValidator(id);
 
             return _knowledgeRepo.GetById(id);
