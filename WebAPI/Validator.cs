@@ -17,5 +17,13 @@
                 throw new ArgumentNullException(nameof(str), "Название не определено.");
             }
         }
+
+        public static void ObjectValidator(object obj)
+        {
+            if (obj == null)
+            {
+                throw new ArgumentNullException(nameof(obj), "Отсутствует ссылка на объект.");
+            }
+        }
     }
 }

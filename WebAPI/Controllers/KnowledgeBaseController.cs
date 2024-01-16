@@ -24,30 +24,34 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost(Name = "AddKnowledgeBase")]
-        public Guid AddKnowledgeBase(string name)
+        public Guid AddKnowledgeBase()
         {
-            Validator.StringValidator(name);
+            var content = HttpContext.Request.ReadFromJsonAsync<KnowledgeBase>();
+            var knowledgeBase = content.Result;
 
-            var knowledgeBase = new KnowledgeBase();
-            knowledgeBase.Name = name;
+            Validator.ObjectValidator(knowledgeBase);
 
             return _knowledgeRepo.CreateKnowledgeBase(knowledgeBase);
         }
 
         [HttpPut(Name = "UpdateKnowledgeBase")]
-        public string UpdateKnowledgeBase(Guid id, string newName)
+        public string UpdateKnowledgeBase(Guid id)
         {
             Validator.GuidValidator(id);
-            Validator.StringValidator(newName);
 
-            var result = _knowledgeRepo.UpdateNameById(id, newName);
+            var content = HttpContext.Request.ReadFromJsonAsync<KnowledgeBase>();
+            var knowledgeBaseName = content.Result.Name;
+
+            Validator.StringValidator(knowledgeBaseName);
+
+            var result = _knowledgeRepo.UpdateNameById(id, knowledgeBaseName);
 
             if (!result)
             {
                 return "Название статьи не изменено.";
             }
 
-            return $"Новое название статьи {newName}";
+            return $"Новое название статьи {knowledgeBaseName}";
         }
 
         [HttpDelete(Name = "DeleteKnowledgeBase")]
