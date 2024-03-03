@@ -12,7 +12,7 @@ namespace WebAPI
             _dbContext = dbContext;
         }
 
-        public Guid CreateKnowledgeBase(KnowledgeBase knowledgeBase)
+        public virtual Guid CreateKnowledgeBase(KnowledgeBase knowledgeBase)
         {
             _dbContext.Add(knowledgeBase);
             _dbContext.SaveChanges();
@@ -20,25 +20,21 @@ namespace WebAPI
             return knowledgeBase.Id;
         }
 
-        public KnowledgeBase GetById(Guid id)
+        public virtual KnowledgeBase GetById(Guid id)
         {
             return _dbContext.KnowledgeBases
                 .Where(knowledgeBase => knowledgeBase.Id == id)
                 .FirstOrDefault();
         }
 
-        public bool UpdateNameById(Guid id, string newName)
+        public virtual bool Update(KnowledgeBase knowledgeBase)
         {
             var result = false;
-
-            var knowledgeBase = GetById(id);
 
             if (knowledgeBase == null)
             {
                 return result;
             }
-
-            knowledgeBase.Name = newName;
 
             _dbContext.Entry(knowledgeBase).State = EntityState.Modified;
             var count = _dbContext.SaveChanges();
@@ -51,7 +47,7 @@ namespace WebAPI
             return result;
         }
 
-        public bool DeleteById(Guid id)
+        public virtual bool DeleteById(Guid id)
         {
             var result = false;
 

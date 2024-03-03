@@ -14,9 +14,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet(Name = "GetKnowledgeBase")]
-        public KnowledgeBase GetKnowledgeBaseByName(Guid id)
+        public KnowledgeBase GetKnowledgeBaseById(Guid id)
         {
-            var testHeader = HttpContext.Request.Headers["Test"];
+            var testHeader = HttpContext?.Request?.Headers["Test"];
             
             Validator.GuidValidator(id);
 
@@ -24,49 +24,27 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost(Name = "AddKnowledgeBase")]
-        public Guid AddKnowledgeBase()
+        public Guid AddKnowledgeBase(KnowledgeBase knowledgeBase)
         {
-            var content = HttpContext.Request.ReadFromJsonAsync<KnowledgeBase>();
-            var knowledgeBase = content.Result;
-
             Validator.ObjectValidator(knowledgeBase);
 
             return _knowledgeRepo.CreateKnowledgeBase(knowledgeBase);
         }
 
         [HttpPut(Name = "UpdateKnowledgeBase")]
-        public string UpdateKnowledgeBase(Guid id)
+        public bool UpdateKnowledgeBase(KnowledgeBase knowledgeBase)
         {
-            Validator.GuidValidator(id);
+            Validator.ObjectValidator(knowledgeBase);
 
-            var content = HttpContext.Request.ReadFromJsonAsync<KnowledgeBase>();
-            var knowledgeBaseName = content.Result.Name;
-
-            Validator.StringValidator(knowledgeBaseName);
-
-            var result = _knowledgeRepo.UpdateNameById(id, knowledgeBaseName);
-
-            if (!result)
-            {
-                return "Название статьи не изменено.";
-            }
-
-            return $"Новое название статьи {knowledgeBaseName}";
+            return _knowledgeRepo.Update(knowledgeBase);
         }
 
         [HttpDelete(Name = "DeleteKnowledgeBase")]
-        public string DeleteKnowledgeBase(Guid id)
+        public bool DeleteKnowledgeBase(Guid id)
         {
             Validator.GuidValidator(id);
 
-            var result = _knowledgeRepo.DeleteById(id);
-
-            if (!result)
-            {
-                return "Запись не удалена.";
-            }
-
-            return $"Запись успешно удалена";
+            return _knowledgeRepo.DeleteById(id);
         }
     }
 }

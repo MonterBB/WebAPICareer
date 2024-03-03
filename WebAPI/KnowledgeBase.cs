@@ -50,19 +50,19 @@ public partial class KnowledgeBase
     /// TS.IsTemporary=False;TS.EntitySchemaColumn.UId={FE374374-3A0F-4B14-9148-8B95E3320249};TS.EntitySchemaColumn.DataValueType=MaxSizeText;TS.EntitySchemaColumn.ReferenceSchemaUId={00000000-0000-0000-0000-000000000000};TS.EntitySchemaColumn.ReferenceValueListSchemaUId={00000000-0000-0000-0000-000000000000};TS.EntitySchemaColumn.Caption=en-US|Resolution,ru-RU|Решение;TS.EntitySchemaColumn.CreatedInSchemaUId={0326868C-CE5E-4934-8F1F-178801BFE6C3};TS.ColumnName=Notes;TS.ActionType=Column;
     /// TS.ConstraintName=DFjOUvp6miIcvqQAGpjMWHuE6Ksg;TS.EntitySchemaColumn.UId={FE374374-3A0F-4B14-9148-8B95E3320249};TS.ActionType=DefValue;
     /// </summary>
-    public string Notes { get; set; } = null!;
+    public string? Notes { get; set; }
 
     /// <summary>
     /// TS.IsTemporary=False;TS.EntitySchemaColumn.UId={83D9D3C9-90DF-486E-A7C9-CDC7E90EC6B3};TS.EntitySchemaColumn.DataValueType=ShortText;TS.EntitySchemaColumn.ReferenceSchemaUId={00000000-0000-0000-0000-000000000000};TS.EntitySchemaColumn.ReferenceValueListSchemaUId={00000000-0000-0000-0000-000000000000};TS.EntitySchemaColumn.Caption=en-US|Code,ru-RU|Код;TS.EntitySchemaColumn.CreatedInSchemaUId={0326868C-CE5E-4934-8F1F-178801BFE6C3};TS.ColumnName=Code;TS.ActionType=Column;
     /// TS.ConstraintName=DFFzkGV59po0mPP6bZPvjchSa8PU;TS.EntitySchemaColumn.UId={83D9D3C9-90DF-486E-A7C9-CDC7E90EC6B3};TS.ActionType=DefValue;
     /// </summary>
-    public string Code { get; set; } = null!;
+    public string? Code { get; set; }
 
     /// <summary>
     /// TS.IsTemporary=False;TS.EntitySchemaColumn.UId={C730359E-6048-4AFE-AB8A-FE8097A9DA16};TS.EntitySchemaColumn.DataValueType=MaxSizeText;TS.EntitySchemaColumn.ReferenceSchemaUId={00000000-0000-0000-0000-000000000000};TS.EntitySchemaColumn.ReferenceValueListSchemaUId={00000000-0000-0000-0000-000000000000};TS.EntitySchemaColumn.Caption=en-US|Tags,ru-RU|Теги;TS.EntitySchemaColumn.CreatedInSchemaUId={0326868C-CE5E-4934-8F1F-178801BFE6C3};TS.ColumnName=Keywords;TS.ActionType=Column;
     /// TS.ConstraintName=DFcCNwJ2AlgocdcA542FKpGG6PvYQ;TS.EntitySchemaColumn.UId={C730359E-6048-4AFE-AB8A-FE8097A9DA16};TS.ActionType=DefValue;
     /// </summary>
-    public string Keywords { get; set; } = null!;
+    public string? Keywords { get; set; }
 
     /// <summary>
     /// TS.IsTemporary=False;TS.EntitySchemaColumn.UId={33DB271F-4440-457B-A15C-05F6E83AD8A8};TS.EntitySchemaColumn.DataValueType=Lookup;TS.EntitySchemaColumn.ReferenceSchemaUId={9D744E43-11B0-4811-BFE1-6350F1D100C3};TS.EntitySchemaColumn.ReferenceValueListSchemaUId={00000000-0000-0000-0000-000000000000};TS.EntitySchemaColumn.Caption=en-US|Type,ru-RU|Тип;TS.EntitySchemaColumn.CreatedInSchemaUId={0326868C-CE5E-4934-8F1F-178801BFE6C3};TS.ColumnName=TypeId;TS.ActionType=Column;
@@ -75,37 +75,17 @@ public partial class KnowledgeBase
     /// TS.IsTemporary=False;TS.EntitySchemaColumn.UId={3FABD836-6A53-4D8D-9069-6DF88D9DAE1E};TS.EntitySchemaColumn.DataValueType=Integer;TS.EntitySchemaColumn.ReferenceSchemaUId={00000000-0000-0000-0000-000000000000};TS.EntitySchemaColumn.ReferenceValueListSchemaUId={00000000-0000-0000-0000-000000000000};TS.EntitySchemaColumn.Caption=en-US|Active processes,ru-RU|Активные процессы;TS.EntitySchemaColumn.CreatedInSchemaUId={1BAB9DCF-17D5-49F8-9536-8E0064F1DCE0};TS.ColumnName=ProcessListeners;TS.ActionType=Column;
     /// TS.ConstraintName=DFZLQI5b5DQNDrLHMhjt6mcOt2nQ;TS.EntitySchemaColumn.UId={3FABD836-6A53-4D8D-9069-6DF88D9DAE1E};TS.ActionType=DefValue;
     /// </summary>
-    public int ProcessListeners { get; set; }
+    public int? ProcessListeners { get; set; }
 
     /// <summary>
     /// TS.IsTemporary=False;TS.EntitySchemaColumn.UId={FDE3D1EB-6629-4A28-9621-DAA6C6EB4C1F};TS.EntitySchemaColumn.DataValueType=Integer;TS.EntitySchemaColumn.ReferenceSchemaUId={00000000-0000-0000-0000-000000000000};TS.EntitySchemaColumn.ReferenceValueListSchemaUId={00000000-0000-0000-0000-000000000000};TS.EntitySchemaColumn.Caption=en-US|Views,ru-RU|Количество просмотров;TS.EntitySchemaColumn.CreatedInSchemaUId={0326868C-CE5E-4934-8F1F-178801BFE6C3};TS.ColumnName=ViewsCount;TS.ActionType=Column;
     /// TS.ConstraintName=DFGeSTKzjTlhClrubtKKmWgUNT30k;TS.EntitySchemaColumn.UId={FDE3D1EB-6629-4A28-9621-DAA6C6EB4C1F};TS.ActionType=DefValue;
     /// </summary>
-    public int ViewsCount { get; set; }
+    public int? ViewsCount { get; set; }
 
     /// <summary>
     /// TS.IsTemporary=False;TS.EntitySchemaColumn.UId={802D6477-8E01-4286-A563-084A2A4C4FF0};TS.EntitySchemaColumn.DataValueType=MaxSizeText;TS.EntitySchemaColumn.ReferenceSchemaUId={00000000-0000-0000-0000-000000000000};TS.EntitySchemaColumn.ReferenceValueListSchemaUId={00000000-0000-0000-0000-000000000000};TS.EntitySchemaColumn.Caption=en-US|Solution without HTML tags,ru-RU|Решение без HTML тегов;TS.EntitySchemaColumn.CreatedInSchemaUId={0326868C-CE5E-4934-8F1F-178801BFE6C3};TS.ColumnName=NotHtmlNote;TS.ActionType=Column;
     /// TS.ConstraintName=DFyVt7hAbMQlXv8ZiaCJr82G0qJJ4;TS.EntitySchemaColumn.UId={802D6477-8E01-4286-A563-084A2A4C4FF0};TS.ActionType=DefValue;
     /// </summary>
-    public string NotHtmlNote { get; set; } = null!;
-
-    /// <summary>
-    /// TS.IsTemporary=False;TS.EntitySchemaColumn.UId={7E2C08B0-53F3-44E2-ACB6-B60F210602A6};TS.EntitySchemaColumn.DataValueType=Lookup;TS.EntitySchemaColumn.ReferenceSchemaUId={E79650E0-3A80-465E-BA8C-9B0372CB04B1};TS.EntitySchemaColumn.ReferenceValueListSchemaUId={00000000-0000-0000-0000-000000000000};TS.EntitySchemaColumn.Caption=en-US|Список тегов,ru-RU|Список тегов;TS.EntitySchemaColumn.CreatedInSchemaUId={556F896C-F78D-436D-BCAC-E7CB9234DB72};TS.ColumnName=TagListId;TS.ActionType=Column;
-    /// TS.EntitySchemaIndex.UId={7E2C08B0-53F3-44E2-ACB6-B60F210602A6};TS.IndexName=IVHGPInImnvS1L7XTBhwy0QUvUs;TS.IsColumnIndex=True;TS.ActionType=Index;
-    /// TS.ConstraintName=FKaUX6BaLqHMZBaClPDQqN8yAzyU;TS.EntitySchemaColumn.UId={7E2C08B0-53F3-44E2-ACB6-B60F210602A6};TS.ActionType=ForeignKey;
-    /// </summary>
-    public Guid? TagListId { get; set; }
-
-    /// <summary>
-    /// TS.IsTemporary=False;TS.EntitySchemaColumn.UId={70E9953A-D4BD-468F-9C87-F2F31F283666};TS.EntitySchemaColumn.DataValueType=Lookup;TS.EntitySchemaColumn.ReferenceSchemaUId={D7A8038D-63A1-42AA-BF5C-D6E0F8E97B13};TS.EntitySchemaColumn.ReferenceValueListSchemaUId={00000000-0000-0000-0000-000000000000};TS.EntitySchemaColumn.Caption=en-US|Источник статьи,ru-RU|Источник статьи;TS.EntitySchemaColumn.CreatedInSchemaUId={B367C29E-9882-4CE8-A3D5-091D64D5A73F};TS.ColumnName=WbDocxSourceId;TS.ActionType=Column;
-    /// TS.EntitySchemaIndex.UId={70E9953A-D4BD-468F-9C87-F2F31F283666};TS.IndexName=IKEA9eP7OFeENtIgxB63WX3YtrTc;TS.IsColumnIndex=True;TS.ActionType=Index;
-    /// TS.ConstraintName=FK2feeW2na7oWc7bkjtwSJwyGUB8;TS.EntitySchemaColumn.UId={70E9953A-D4BD-468F-9C87-F2F31F283666};TS.ActionType=ForeignKey;
-    /// </summary>
-    public Guid? WbDocxSourceId { get; set; }
-
-    /// <summary>
-    /// TS.IsTemporary=False;TS.EntitySchemaColumn.UId={6D3539F4-C9F1-E33B-97B7-3F44C4F00F43};TS.EntitySchemaColumn.DataValueType=Boolean;TS.EntitySchemaColumn.ReferenceSchemaUId={00000000-0000-0000-0000-000000000000};TS.EntitySchemaColumn.ReferenceValueListSchemaUId={00000000-0000-0000-0000-000000000000};TS.EntitySchemaColumn.Caption=en-US|Ограничить доступность,ru-RU|Ограничить доступность;TS.EntitySchemaColumn.CreatedInSchemaUId={B367C29E-9882-4CE8-A3D5-091D64D5A73F};TS.ColumnName=WbRestrictAccess;TS.ActionType=Column;
-    /// TS.ConstraintName=DFEgXzx50JpByFxDBSj3ee7BqOg;TS.EntitySchemaColumn.UId={6D3539F4-C9F1-E33B-97B7-3F44C4F00F43};TS.ActionType=DefValue;
-    /// </summary>
-    public bool WbRestrictAccess { get; set; }
+    public string? NotHtmlNote { get; set; }
 }
