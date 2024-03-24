@@ -8,12 +8,13 @@ using Moq;
 
 namespace TestWebAPI
 {
-    public class UnitTest
+    /// <summary>
+    /// РўРµСЃС‚С‹ РєРѕРЅС‚СЂРѕР»Р»РµСЂР° РѕР±СЉРµРєС‚Р° "Р‘Р°Р·Р° Р·РЅР°РЅРёР№"
+    /// </summary>
+    public class KnowledgeBaseControllerUnitTest
     {
-        public const string BaseURL = "https://localhost:7233/api/KnowledgeBase";
-
         /// <summary>
-        /// Успешное добавление записи.
+        /// РЈСЃРїРµС€РЅРѕРµ РґРѕР±Р°РІР»РµРЅРёРµ Р·Р°РїРёСЃРё.
         /// </summary>
         [Fact]
         public void KnowledgeBaseAdd_Success()
@@ -33,7 +34,7 @@ namespace TestWebAPI
         }
 
         /// <summary>
-        /// Добавление с пустым параметром.
+        /// РџРѕРїС‹С‚РєР° РґРѕР±Р°РІРёС‚СЊ РїСѓСЃС‚СѓСЋ Р·Р°РїРёСЃСЊ РІ Р±Р°Р·Сѓ Р·РЅР°РЅРёР№.
         /// </summary>
         [Fact]
         public void KnowledgeBaseAddNull_Exception()
@@ -43,11 +44,11 @@ namespace TestWebAPI
 
             var ex = Assert.Throws<ArgumentNullException>(() => knowledgeController.AddKnowledgeBase(null));
 
-            Assert.Contains("Отсутствует ссылка на объект.", ex.Message);
+            Assert.Contains("РћС‚СЃСѓС‚СЃС‚РІСѓРµС‚ СЃСЃС‹Р»РєР° РЅР° РѕР±СЉРµРєС‚.", ex.Message);
         }
 
         /// <summary>
-        /// Успешное получение.
+        /// РџРѕР»СѓС‡РµРЅРёСЏ Р·Р°РїРёСЃРё Р±Р°Р·С‹ Р·РЅР°РЅРёР№ РїРѕ Id.
         /// </summary>
         [Fact]
         public void KnowledgeBaseGet_Success()
@@ -68,7 +69,7 @@ namespace TestWebAPI
         }
 
         /// <summary>
-        /// Получение с пустым параметром.
+        /// РџРѕРїС‹С‚РєР° РїРѕР»СѓС‡РёС‚СЊ Р·Р°РїРёСЃСЊ Р±Р°Р·С‹ Р·РЅР°РЅРёР№ СЃ РїСѓСЃС‚С‹Рј Id.
         /// </summary>
         [Fact]
         public void KnowledgeBaseGetWithoutId_Exception()
@@ -78,11 +79,11 @@ namespace TestWebAPI
 
             var ex = Assert.Throws<ArgumentNullException>(() => knowledgeController.GetKnowledgeBaseById(Guid.Empty));
 
-            Assert.Contains("Идентификатор не определён.", ex.Message);
+            Assert.Contains("РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РЅРµ РѕРїСЂРµРґРµР»С‘РЅ.", ex.Message);
         }
 
         /// <summary>
-        /// Успешное обновление.
+        /// РћР±РЅРѕРІР»РµРЅРёРµ Р±Р°Р·С‹ Р·РЅР°РЅРёР№.
         /// </summary>
         [Fact]
         public void KnowledgeBaseUpdate_Success()
@@ -102,7 +103,7 @@ namespace TestWebAPI
         }
 
         /// <summary>
-        /// Обновление с пустым параметром.
+        /// РџРѕРїС‹С‚РєР° РѕР±РЅРѕРІРёС‚СЊ РїСѓСЃС‚РѕР№ РѕР±СЉРµРєС‚ Р±Р°Р·С‹ Р·РЅР°РЅРёР№.
         /// </summary>
         [Fact]
         public void KnowledgeBaseUpdateWithoutObject_Exception()
@@ -112,11 +113,11 @@ namespace TestWebAPI
 
             var ex = Assert.Throws<ArgumentNullException>(() => knowledgeController.UpdateKnowledgeBase(null));
 
-            Assert.Contains("Отсутствует ссылка на объект.", ex.Message);
+            Assert.Contains("РћС‚СЃСѓС‚СЃС‚РІСѓРµС‚ СЃСЃС‹Р»РєР° РЅР° РѕР±СЉРµРєС‚.", ex.Message);
         }
 
         /// <summary>
-        /// Успешное удаление.
+        /// РЈРґР°Р»РµРЅРёРµ Р·Р°РїРёСЃРё Р±Р°Р·С‹ Р·РЅР°РЅРёР№.
         /// </summary>
         [Fact]
         public void KnowledgeBaseDelete_Success()
@@ -136,7 +137,7 @@ namespace TestWebAPI
         }
 
         /// <summary>
-        /// Удаление с пустым параметром.
+        /// РџРѕРїС‹С‚РєР° СѓРґР°Р»РµРЅРёРµ Р·Р°РїРёСЃРё Р±Р°Р·С‹ Р·РЅР°РЅРёР№ СЃ РїСѓСЃС‚С‹Рј Id.
         /// </summary>
         [Fact]
         public void KnowledgeBaseDeleteWithEmptyGuid_Exception()
@@ -146,7 +147,7 @@ namespace TestWebAPI
 
             var ex = Assert.Throws<ArgumentNullException>(() => knowledgeController.DeleteKnowledgeBase(Guid.Empty));
 
-            Assert.Contains("Идентификатор не определён.", ex.Message);
+            Assert.Contains("РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РЅРµ РѕРїСЂРµРґРµР»С‘РЅ.", ex.Message);
         }
     }
 }
